@@ -1,0 +1,31 @@
+{
+    "name": "tez/utils-fn",
+    "type": "library",
+    "description": "Functional programming primitives for PHP: pipelines, composition, memoization, partial application, once-guards, retry with backoff, and tap for side-effects. PHP 8.3+, no dependencies.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tez\\Utils\\Fn\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tez\\Utils\\Tests\\Fn\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=8.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "jetbrains/phpstorm-attributes": "^1.0",
+        "phpstan/phpstan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "phpstan": "phpstan analyse",
+        "test": "phpunit --testsuite Unit --colors=always"
+    }
+}
