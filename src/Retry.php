@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Fn;
+namespace Tezmanian\Utils\Fn;
 
 final class Retry
 {

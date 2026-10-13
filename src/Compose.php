@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Fn;
+namespace Tezmanian\Utils\Fn;
 
 /**
  * Combines callables using right-to-left mathematical composition (f∘g∘h).

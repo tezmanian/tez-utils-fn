@@ -1,12 +1,19 @@
 # tez-utils-fn
 
+[![CI](https://github.com/tezmanian/tez-utils-fn/actions/workflows/php.yml/badge.svg)](https://github.com/tezmanian/tez-utils-fn/actions/workflows/php.yml)
+[![Packagist Version](https://img.shields.io/packagist/v/tezmanian/utils-fn)](https://packagist.org/packages/tezmanian/utils-fn)
+[![PHP](https://img.shields.io/packagist/php-v/tezmanian/utils-fn)](https://packagist.org/packages/tezmanian/utils-fn)
+[![License: MIT](https://img.shields.io/packagist/l/tezmanian/utils-fn)](LICENSE)
+
 Functional programming primitives for PHP: pipelines, composition, memoization, partial application, once-guards, retry with backoff, and tap for side-effects. PHP 8.3+, no dependencies.
 
 ## Installation
 
 ```bash
-composer require tez/utils-fn
+composer require tezmanian/utils-fn
 ```
+
+Package: [`tezmanian/utils-fn`](https://packagist.org/packages/tezmanian/utils-fn) · Namespace: `Tezmanian\Utils\Fn`
 
 ## Components
 
@@ -27,7 +34,7 @@ composer require tez/utils-fn
 Passes a value through an ordered sequence of callables left-to-right. Each stage receives the output of the previous one.
 
 ```php
-use Tez\Utils\Fn\Pipeline;
+use Tezmanian\Utils\Fn\Pipeline;
 
 // Immediate execution
 Pipeline::process(
@@ -58,7 +65,7 @@ Right-to-left composition — the mathematical counterpart to `Pipeline`. The ri
 `Compose::build(f, g, h)` is equivalent to `Pipeline::build(h, g, f)`.
 
 ```php
-use Tez\Utils\Fn\Compose;
+use Tezmanian\Utils\Fn\Compose;
 
 // Immediate execution — applies right-to-left: trim → strtolower → str_replace
 Compose::apply(
@@ -87,7 +94,7 @@ $process('  FOO BAR  ');    // 'foo-bar'
 Wraps a callable and caches its return value per unique argument signature. `null` return values are cached correctly and do not trigger a second invocation.
 
 ```php
-use Tez\Utils\Fn\Memoize;
+use Tezmanian\Utils\Fn\Memoize;
 
 $expensiveCalc = Memoize::wrap(function (int $n): int {
     // called only once per unique $n
@@ -116,7 +123,7 @@ $expensiveCalc(5); // computed again
 Executes a callable exactly once. Every subsequent call returns the cached return value without re-invoking the callable. Each `Once` instance is independent.
 
 ```php
-use Tez\Utils\Fn\Once;
+use Tezmanian\Utils\Fn\Once;
 
 $init = Once::wrap(function (): string {
     // executed only on the first call
@@ -140,7 +147,7 @@ $once(); // null — from cache, callable NOT called again
 Pre-fills the leading arguments of a callable and returns a new `Closure` that accepts the remaining arguments.
 
 ```php
-use Tez\Utils\Fn\Partial;
+use Tezmanian\Utils\Fn\Partial;
 
 $multiply = fn(int $a, int $b): int => $a * $b;
 
@@ -172,7 +179,7 @@ $pipeline('hello'); // '>>> HELLO'
 Retries a callable on exception. Supports linear and exponential backoff, exception allowlists (`only`), and exception blocklists (`except`). Throws the last exception when all attempts are exhausted.
 
 ```php
-use Tez\Utils\Fn\Retry;
+use Tezmanian\Utils\Fn\Retry;
 
 // Basic retry — up to 3 attempts (default)
 $result = Retry::run(fn() => fetchFromApi());
@@ -212,8 +219,8 @@ Executes a side-effect callable on a value and returns the value unchanged. The 
 Useful for logging, debugging, or triggering side-effects inside a pipeline without breaking the chain.
 
 ```php
-use Tez\Utils\Fn\Tap;
-use Tez\Utils\Fn\Pipeline;
+use Tezmanian\Utils\Fn\Tap;
+use Tezmanian\Utils\Fn\Pipeline;
 
 Tap::value('hello', fn($v) => strtoupper($v)); // 'hello' — callable return discarded
 
@@ -232,6 +239,15 @@ $pipeline = Pipeline::build(
 - PHP 8.3+
 - No runtime dependencies
 
+## Development
+
+```bash
+make build && make install
+make ci   # audit, PHPStan, code style, tests
+```
+
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
+
+Author: René Halberstadt

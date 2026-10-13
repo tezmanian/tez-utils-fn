@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Fn;
+namespace Tezmanian\Utils\Fn;
 
 /**
  * Pipes a value through an ordered sequence of callables left-to-right.

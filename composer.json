@@ -1,16 +1,34 @@
 {
-    "name": "tez/utils-fn",
+    "name": "tezmanian/utils-fn",
     "type": "library",
     "description": "Functional programming primitives for PHP: pipelines, composition, memoization, partial application, once-guards, retry with backoff, and tap for side-effects. PHP 8.3+, no dependencies.",
+    "keywords": [
+        "functional",
+        "pipeline",
+        "memoize",
+        "retry",
+        "php"
+    ],
+    "homepage": "https://github.com/tezmanian/tez-utils-fn",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "René Halberstadt",
+            "email": "tezmanian@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/tezmanian/tez-utils-fn/issues",
+        "source": "https://github.com/tezmanian/tez-utils-fn"
+    },
     "autoload": {
         "psr-4": {
-            "Tez\\Utils\\Fn\\": "src/"
+            "Tezmanian\\Utils\\Fn\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tez\\Utils\\Tests\\Fn\\": "tests/"
+            "Tezmanian\\Utils\\Tests\\Fn\\": "tests/"
         }
     },
     "require": {

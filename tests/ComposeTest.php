@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Tests\Fn;
+namespace Tezmanian\Utils\Tests\Fn;
 
 use PHPUnit\Framework\TestCase;
-use Tez\Utils\Fn\Compose;
+use Tezmanian\Utils\Fn\Compose;
 
 final class ComposeTest extends TestCase
 {

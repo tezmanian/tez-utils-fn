@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Fn;
+namespace Tezmanian\Utils\Fn;
 
 /**
  * Executes a side-effect callable on a value and returns the value unchanged.

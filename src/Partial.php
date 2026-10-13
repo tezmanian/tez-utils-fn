@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Fn;
+namespace Tezmanian\Utils\Fn;
 
 /**
  * Pre-fills the leading arguments of a callable and returns a new Closure

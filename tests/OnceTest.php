@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Tests\Fn;
+namespace Tezmanian\Utils\Tests\Fn;
 
 use PHPUnit\Framework\TestCase;
-use Tez\Utils\Fn\Once;
+use Tezmanian\Utils\Fn\Once;
 
 final class OnceTest extends TestCase
 {
@@ -45,7 +45,7 @@ final class OnceTest extends TestCase
         $once = Once::wrap(fn(): string => 'hello');
 
         self::assertSame('hello', $once());
-        self::assertSame('hello', $once());
+        self::assertSame('hello', $once()); // @phpstan-ignore staticMethod.alreadyNarrowedType
     }
 
     public function testNullReturnIsCachedCorrectly(): void

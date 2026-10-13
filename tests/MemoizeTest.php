@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Tests\Fn;
+namespace Tezmanian\Utils\Tests\Fn;
 
 use PHPUnit\Framework\TestCase;
-use Tez\Utils\Fn\Memoize;
+use Tezmanian\Utils\Fn\Memoize;
 
 final class MemoizeTest extends TestCase
 {
@@ -109,7 +109,7 @@ final class MemoizeTest extends TestCase
         });
 
         self::assertSame(3, $memoized(1, 2));
-        self::assertSame(3, $memoized(1, 2));
+        self::assertSame(3, $memoized(1, 2)); // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertSame(5, $memoized(2, 3));
         self::assertSame(2, $calls);
     }

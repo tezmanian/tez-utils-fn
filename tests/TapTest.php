@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Tests\Fn;
+namespace Tezmanian\Utils\Tests\Fn;
 
 use PHPUnit\Framework\TestCase;
-use Tez\Utils\Fn\Tap;
+use Tezmanian\Utils\Fn\Tap;
 
 final class TapTest extends TestCase
 {

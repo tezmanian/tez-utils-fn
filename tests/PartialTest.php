@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tez\Utils\Tests\Fn;
+namespace Tezmanian\Utils\Tests\Fn;
 
 use PHPUnit\Framework\TestCase;
-use Tez\Utils\Fn\Partial;
+use Tezmanian\Utils\Fn\Partial;
 
 final class PartialTest extends TestCase
 {
@@ -64,7 +64,7 @@ final class PartialTest extends TestCase
     {
         $addPrefix = Partial::apply(fn(string $prefix, string $s) => $prefix . $s, '>>> ');
 
-        $pipeline = \Tez\Utils\Fn\Pipeline::build(
+        $pipeline = \Tezmanian\Utils\Fn\Pipeline::build(
             'strtoupper',
             $addPrefix,
         );
